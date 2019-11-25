@@ -5,13 +5,17 @@ import { extractRoutes } from './route';
 import { convertSwagger } from './convert-swagger';
 import { Swagger } from './swagger-struct';
 
+const createSwaggerDir = () => {
+  const srcStaticDir = path.join(process.cwd(), 'static');
+  if (!fs.existsSync(srcStaticDir)) fs.mkdirSync(srcStaticDir);
+  const srcSwaggerDir = path.join(srcStaticDir, 'swagger');
+  if (!fs.existsSync(srcSwaggerDir)) fs.mkdirSync(srcSwaggerDir);
+  return srcSwaggerDir;
+};
+
 const saveSwaggerJson = (content: string, savePath: string) => {
-  const targetPath = path.resolve(process.cwd(), savePath);
-  const exists = fs.existsSync(targetPath);
-  if (!exists) {
-    fs.mkdirSync(targetPath);
-  }
-  fs.writeFileSync(path.resolve(targetPath, 'swagger.json'), content, 'utf8');
+  const dir = createSwaggerDir();
+  fs.writeFileSync(path.join(dir, 'swagger.json'), content, 'utf8');
 };
 
 export default (controllerDsls: DSLController[], tmpRelativePath: string) => {
@@ -20,7 +24,6 @@ export default (controllerDsls: DSLController[], tmpRelativePath: string) => {
 
   routes.forEach(route => {
     convertSwagger(swagger, route);
-
   });
 
   saveSwaggerJson(JSON.stringify(swagger), tmpRelativePath);

@@ -1,7 +1,5 @@
 import { IRoute } from './route';
-
-import JoiKeys from './joi-keys';
-import { hashCode, DSLReqDto, DSLField } from '@nxapi/nxapi';
+import { DSLReqDto, DSLField } from '@nxapi/nxapi';
 import { Swagger, SwaggerRoute, HttpMethod, Parameter } from './swagger-struct';
 
 export const convertSwagger = (swagger: Swagger, route: IRoute) => {
@@ -26,7 +24,6 @@ export const convertSwagger = (swagger: Swagger, route: IRoute) => {
     httpMethod.parameters.push(param);
   }
   httpMethod.responses[200].schema = dealReqDto(route.dto);
-
 };
 const dealGetDeleteReq = (reqDto: DSLReqDto) => {
   const params: Parameter[] = [];

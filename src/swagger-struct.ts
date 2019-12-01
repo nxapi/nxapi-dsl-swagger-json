@@ -36,7 +36,7 @@ export class Parameter {
   example?: string;
   schema?: Parameter;
   items?: Parameter;
-  properties?: object = {};
+  properties?: object;
 
   //...
 }

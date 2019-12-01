@@ -7,7 +7,7 @@ import { d } from '@nxapi/nxapi';
 export default class TestController extends BaseController {
   @d.function.description('ddddddd')
   @d.function.post('/hellopp')
-  public ggg(req: TestReq): TestDto[] {
+  public ggg(req: TestReq, req2: string): TestDto[] {
     return [new TestDto()];
   }
   @d.function.post('post')

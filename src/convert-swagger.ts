@@ -1,6 +1,4 @@
 import { IRoute } from './route';
-
-import JoiKeys from './joi-keys';
 import { hashCode, DSLReqDto, DSLField } from '@nxapi/nxapi';
 import { Swagger, SwaggerRoute, HttpMethod, Parameter } from './swagger-struct';
 
@@ -58,7 +56,7 @@ const dealReqDto = (reqDto: DSLReqDto) => {
   if (!reqDto.fields) return rootParam;
   rootParam.type = 'object';
   rootParam.required = [];
-  const properties = {};
+  const properties = reqDto.fields.length > 0 ? {} : null;
   reqDto.fields.forEach((field: DSLField) => {
     const param = new Parameter();
     param.description = field['description'];

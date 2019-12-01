@@ -1,7 +1,7 @@
 {
-  "name": "@nxapi/nxapi-dsl-joi",
+  "name": "@nxapi/nxapi-dsl-swagger-json",
   "version": "0.1.0",
-  "description": "@nxapi/nxapi-dsl-joi",
+  "description": "@nxapi/nxapi-dsl-swagger-json",
   "scripts": {
     "build": "npm run build-ts && npm run tslint",
     "watch-ts": "rm -rf ./dist && tsc -w",

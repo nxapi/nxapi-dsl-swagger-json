@@ -1,6 +1,6 @@
 {
   "name": "@nxapi/nxapi-dsl-swagger-json",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "@nxapi/nxapi-dsl-swagger-json",
   "scripts": {
     "build": "npm run build-ts && npm run tslint",

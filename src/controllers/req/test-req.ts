@@ -4,7 +4,9 @@ import HelloReq from './hello-req';
 export default class TestReq {
   @d.array.description('ddda')
   @d.array.required()
-  arr: HelloReq[];
+  @d.array.string.required()
+  @d.array.string.example('arr item eq')
+  arr: string[];
 
   // @d.object.required()
   // hello: HelloReq;

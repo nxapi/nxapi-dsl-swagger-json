@@ -68,7 +68,9 @@ const dealReqDto = (reqDto: DSLReqDto) => {
         const childParam = dealReqDto(field.typeDeclare);
         param.items.properties = childParam.properties;
       } else {
-        // param.items.type = joiType;
+        if (field.extraInfo) {
+          param.items.example = field.extraInfo.example;
+        }
       }
     } else {
       param.type = joiType;
